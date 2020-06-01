@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VarietyFootwear</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/image_slide.js"></script>
+</head>
+
+<body>
+
+    <div class="layout-style">
+        <div class="header-style">
+            <center> <img src="~/images/vary2.png" alt="stuff" />	</center>
+        </div>
+        <div class="menu-style">
+            <div id="menubar">
+
+                <ul id="menu">
+                    <li class="@(ViewBag.Selected == "Home" ? "current" : "")"><a href="/">Home</a></li>
+                    <li><a href="Reg.asp">Register</a></li>
+                    <li class="@(ViewBag.Selected == "Arrrivals" ? "current" : "")"><a href="arrivals">New Arrrivals</a></li>
+                    <li><a href="aboutus1.asp">About us</a></li>
+                    <li><a href="contactus1.asp">Contact us</a></li>
+                    <li><a href="Feedback.asp">Feedback</a></li>
+                    <li class="@(ViewBag.Selected == "Orders" ? "current" : "")"><a href="orders">Orders</a></li>
+                    <li><a href="search1.asp">Search</a></li>
+                    <li><a href="logout.asp">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="body-style">
+            <ul class="slideshow">
+                <li class="show"><img height="250" src="~/images/home.png" alt="&quot;Rock on this summer&quot;" /></li>
+                <li><img height="250" src="~/images/homepic.png" alt="&quot;Feel the heat&quot;" /></li>
+            </ul>
+
+            <div class="sidebar_container">
+                <div class="sidebar">
+                    <div class="sidebar_item">
+                        <h2>Variety Footwear.com</h2>
+                        <p>Welcome to our new website.</p>
+                    </div><!--close sidebar_item-->
+                </div><!--close sidebar-->
+                <div class="sidebar">
+                    <div class="sidebar_item">
+                        <h2>Latest Update</h2>
+                        <h3>March 2020</h3>
+                        <p>Check out our latest footwear products coming out this summer</p>
+                    </div><!--close sidebar_item-->
+                </div><!--close sidebar-->
+                <div class="sidebar">
+                    <div class="sidebar_item">
+                        <h2>Contact</h2>
+                        <h3>Phone: (031)1234 567891</h3>
+                        <h3>Email: <a href="mailto:info@youremail.co.uk">VarietyFootwear@gmail.co.uk</a></h3>
+                    </div><!--close sidebar_item-->
+                </div><!--close sidebar-->
+            </div><!--close sidebar_container-->
+
+            <div class="container">
+                <main role="main" class="pb-3">
+                    <div id="content">
+                        <div class="content_item">
+                            @RenderBody()
+                        </div>
+                    </div>                
+                </main>
+            </div>
+        </div><!--close site_content-->
+
+        <div class="footer-style">
+            <div id="content_grey" class="three-equal-columns-style ">
+                <div class="content_grey_container_box">
+                    <h4>How to Order Online?</h4>
+                    <p> Check out how you can get started on ordering online.</p>
+                    <div class="readmore">
+                        <a href="#">Read more</a>
+                    </div><!--close readmore-->
+                </div><!--close content_grey_container_box-->
+                <div class="content_grey_container_box">
+                    <h4>Latest News</h4>
+                    <p> Armani has a new owner?</p>
+                    <div class="readmore">
+                        <a href="readmore3.html">Read more</a>
+                    </div>
+                    <!--close readmore-->
+                </div><!--close content_grey_container_box-->
+                <div class="content_grey_container_box">
+                    <h4>New Up and Coming Footwear</h4>
+                    <p> Nike is designing a new sneaker said to be one of the best in its time.</p>
+                    <div class="readmore">
+                        <a href="readmore.asp">Read more</a>
+                    </div>
+                    <!--close readmore-->
+                </div><!--close content_grey_container_box1-->
+                <br style="clear:both" />
+            </div><!--close content_grey-->
+
+            <div id="footer">
+                <center><a href="index.asp">Home</a> | <a href="aboutus1.asp">About Us</a> | <a href="Reg.asp">Register</a> | <a href="feedback.asp">Feedback</a>| <a href="search1.asp">Search</a></center>
+            </div>
+            <!--close footer-->
+            <p>&nbsp;</p>
+            <div align=center>&copy; @DateTime.Now.Year Variety Footwear,Inc. Designed by Mbuso Mkhize</div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        var flag = 1;
+
+        function topd() {
+            if (flag == 1) {
+                document.images[0].src = "/images/vary1.png";
+                flag = 2;
+            }
+            else
+                if (flag == 2) {
+                    document.images[0].src = "/images/vary2.png";
+                    flag = 3;
+                }
+                else if (flag == 3) {
+                    document.images[0].src = "/images/vary3.png";
+                    flag = 1;
+                }
+
+        }
+        setInterval(topd, 1500);
+
+        $("#menu li").click(function () {
+           
+            $("#menu li").removeClass("current");
+             this.addClass("current");
+        })
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
